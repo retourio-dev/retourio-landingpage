@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { PartyPopper, ArrowRight } from 'lucide-react';
-import { RetourioLogo } from '../components/Logo';
+import { RetourioLogo } from '../../components/Logo';
 
 export default function SuccessPage() {
   return (
@@ -11,7 +11,7 @@ export default function SuccessPage() {
         <div className="flex justify-center mb-12">
           <RetourioLogo />
         </div>
-
+        
         <div className="bg-blue-50 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-8 text-blue-600">
           <PartyPopper size={40} />
         </div>
@@ -19,10 +19,9 @@ export default function SuccessPage() {
         <h1 className="text-4xl font-black tracking-tighter mb-4 text-slate-900 uppercase italic">
           Willkommen an Bord!
         </h1>
-
+        
         <p className="text-slate-500 font-medium mb-12 leading-relaxed">
-          Deine Zahlung war erfolgreich. Dein Retourio-Dashboard ist jetzt
-          freigeschaltet. Lass uns deinen Shop verbinden.
+          Deine Zahlung war erfolgreich. Dein Retourio-Dashboard ist jetzt freigeschaltet. Lass uns deinen Shop verbinden.
         </p>
 
         <Link href="/admin">
@@ -30,7 +29,7 @@ export default function SuccessPage() {
             Zum Dashboard <ArrowRight size={16} />
           </button>
         </Link>
-
+        
         <p className="mt-8 text-[10px] font-black uppercase tracking-widest text-slate-300">
           Eine Bestätigung wurde an deine E-Mail gesendet.
         </p>
