@@ -3,12 +3,18 @@ import Stripe from 'stripe';
 
 export async function POST(req: Request) {
   try {
-    // Initialisierung INSIDE der Funktion
-    // Das verhindert Abstürze während des Vercel-Builds
     const stripeKey = process.env.STRIPE_SECRET_KEY;
-    
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+    // Sicherheits-Check für Vercel Umgebungsvariablen
     if (!stripeKey) {
-      throw new Error("STRIPE_SECRET_KEY is not defined in environment variables");
+      console.error("CRITICAL: STRIPE_SECRET_KEY is missing in Vercel Settings");
+      return NextResponse.json({ error: "Server Configuration Error (API Key)" }, { status: 500 });
+    }
+
+    if (!baseUrl) {
+      console.error("CRITICAL: NEXT_PUBLIC_BASE_URL is missing in Vercel Settings");
+      return NextResponse.json({ error: "Server Configuration Error (Base URL)" }, { status: 500 });
     }
 
     const stripe = new Stripe(stripeKey, {
@@ -22,20 +28,16 @@ export async function POST(req: Request) {
     }
 
     const session = await stripe.checkout.sessions.create({
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
+      payment_method_types: ['card', 'sepa_debit'],
+      line_items: [{ price: priceId, quantity: 1 }],
       mode: 'subscription',
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success`,
-      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/#pricing`,
+      success_url: `${baseUrl}/success`,
+      cancel_url: `${baseUrl}/#pricing`,
     });
 
     return NextResponse.json({ url: session.url });
   } catch (err: any) {
-    console.error("Stripe API Error:", err);
+    console.error("Stripe Session Error:", err.message);
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
