@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/landing/navbar';
 import Hero from '../components/landing/hero';
 import ROICalculator from '../components/landing/ROICalculator';
+import Pricing from '../components/landing/pricing'; // Jetzt früher importiert
 import BentoGrid from '../components/landing/BentoGrid';
 import FAQ from '../components/landing/FAQ';
-import Pricing from '../components/landing/pricing';
 import Footer from '../components/landing/footer';
 
 export default function LandingPage() {
@@ -22,10 +22,16 @@ export default function LandingPage() {
       <Navbar />
       <main>
         <Hero />
-        <ROICalculator />
+        
+        {/* Der ROI Rechner */}
+        <ROICalculator /> 
+        
+        {/* Die Produkte (Pricing) jetzt direkt unter dem Rechner */}
+        <Pricing /> 
+        
+        {/* Die restlichen Sektionen folgen danach */}
         <BentoGrid />
         <FAQ />
-        <Pricing />
       </main>
       <Footer />
     </div>
