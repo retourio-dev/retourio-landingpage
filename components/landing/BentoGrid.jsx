@@ -4,49 +4,50 @@ import { ShieldCheck, Zap, BarChart3, Globe, Smartphone, MousePointerClick } fro
 
 export default function BentoGrid() {
   return (
-    <section className="py-24 px-6">
+    <section className="py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[700px]">
+        {/* Header passend zum Hero-Stil */}
+        <div className="mb-16">
+          <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase italic leading-none text-slate-950">
+            Maximale <br />
+            <span className="text-blue-600">Kontrolle.</span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 h-auto md:h-[650px]">
           
-          {/* Haupt-Feature: Smart Rules */}
-          <div className="md:col-span-2 md:row-span-2 bg-slate-950 rounded-[2.5rem] p-12 text-white flex flex-col justify-between relative overflow-hidden group border border-slate-900">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/10 blur-[120px] pointer-events-none" />
+          {/* Card 1: Hauptfeature (Breit) */}
+          <div className="md:col-span-4 bg-slate-950 rounded-[3rem] p-12 text-white relative overflow-hidden group border border-slate-900 shadow-2xl">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/15 blur-[100px] pointer-events-none" />
+            <ShieldCheck size={48} className="text-blue-500 mb-8" />
+            <h3 className="text-4xl font-black tracking-tighter uppercase italic mb-4">Smart Rules Engine</h3>
+            <p className="text-slate-400 text-lg font-medium max-w-md leading-relaxed">
+              Vollautomatische Prüfung nach deinen Kriterien. Werden Fristen überschritten, lehnt das System die Retoure sofort ab.
+            </p>
+          </div>
+
+          {/* Card 2: Analytics (Hoch) */}
+          <div className="md:col-span-2 bg-blue-600 rounded-[3rem] p-12 text-white flex flex-col justify-between group relative overflow-hidden">
+            <BarChart3 size={48} className="text-white/40 group-hover:scale-125 transition-transform duration-700" />
             <div>
-              <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform">
-                <ShieldCheck size={32} />
-              </div>
-              <h3 className="text-4xl font-black tracking-tighter uppercase italic leading-none mb-6">
-                Intelligente <br /><span className="text-blue-500">Prüfregeln.</span>
-              </h3>
-              <p className="text-slate-400 text-lg font-medium max-w-xs leading-relaxed">
-                Lehne Retouren automatisch ab, die außerhalb deiner Fristen liegen. 100% Kontrolle, 0% Aufwand.
-              </p>
+              <h3 className="text-3xl font-black tracking-tighter uppercase italic mb-2 leading-none">Echtzeit Analyse</h3>
+              <p className="text-blue-100 font-bold uppercase text-[10px] tracking-widest">Wissen, was zurückkommt.</p>
             </div>
           </div>
 
-          {/* Feature: Analytics */}
-          <div className="md:col-span-2 bg-blue-600 rounded-[2.5rem] p-10 text-white flex items-center justify-between group overflow-hidden shadow-2xl shadow-blue-500/20">
-            <div className="z-10">
-              <h3 className="text-2xl font-black uppercase italic mb-2">Live Insights</h3>
-              <p className="text-blue-100 font-medium">Alle Quoten in Echtzeit im Blick.</p>
-            </div>
-            <BarChart3 size={80} className="text-blue-400/30 -mr-4 group-hover:scale-110 transition-transform duration-700" />
+          {/* Card 3: Mobile (Klein/Quadratisch) */}
+          <div className="md:col-span-2 bg-slate-50 rounded-[3rem] p-12 flex flex-col justify-between border border-slate-100 hover:border-blue-500 transition-colors group">
+            <Smartphone size={40} className="text-blue-600 mb-6 group-hover:-rotate-12 transition-transform" />
+            <h3 className="text-2xl font-black tracking-tighter uppercase italic text-slate-950">Self-Service Portal</h3>
           </div>
 
-          {/* Feature: Mobile Portale */}
-          <div className="md:col-span-1 bg-slate-50 rounded-[2.5rem] p-10 border border-slate-100 hover:border-blue-200 transition-colors group">
-            <Smartphone size={32} className="text-blue-600 mb-6 group-hover:-rotate-12 transition-transform" />
-            <h3 className="text-xl font-black uppercase italic text-slate-950">Mobile First</h3>
-            <p className="text-slate-500 text-sm font-bold uppercase mt-2">Optimiert für iOS & Android.</p>
-          </div>
-
-          {/* Feature: One-Click Integration */}
-          <div className="md:col-span-1 bg-slate-950 rounded-[2.5rem] p-10 flex flex-col justify-between group border border-slate-900">
-            <Zap size={32} className="text-blue-500 group-hover:animate-pulse" />
-            <div>
-              <h3 className="text-xl font-black uppercase italic text-white leading-tight">Fast-Sync</h3>
-              <p className="text-slate-500 text-xs font-black uppercase tracking-widest mt-2">Shopify in 5 Min.</p>
+          {/* Card 4: Fast Sync (Breit) */}
+          <div className="md:col-span-4 bg-slate-950 rounded-[3rem] p-12 flex items-center gap-12 group border border-slate-900 relative overflow-hidden">
+            <div className="flex-1 z-10">
+              <h3 className="text-3xl font-black tracking-tighter uppercase italic text-white mb-2">Sync in 5 Minuten</h3>
+              <p className="text-slate-500 font-medium">Verbinde deinen Shopify Store ohne eine einzige Zeile Code.</p>
             </div>
+            <Zap size={60} className="text-blue-500 opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all" />
           </div>
 
         </div>
