@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   
   // Verweist auf die Datei in deinem /public Ordner
   icons: {
-    icon: "/logo.svg", // Falls deine Datei anders heißt (z.B. icon.svg), hier anpassen
-    shortcut: "/logo.svg",
-    apple: "/logo.svg", // Für mobile Lesezeichen
+    icon: "/icon.svg", // Falls deine Datei anders heißt (z.B. icon.svg), hier anpassen
+    shortcut: "/icon.svg",
+    apple: "/icon.svg", // Für mobile Lesezeichen
   },
 };
 
