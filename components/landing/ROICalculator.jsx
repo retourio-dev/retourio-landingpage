@@ -95,7 +95,7 @@ export default function ROICalculator() {
                 <div className="flex flex-col">
                   <span className="text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1">Aktuelles Volumen</span>
                   <span className="text-xl md:text-2xl font-black tabular-nums text-white">
-                    {returnCount.toLocaleString('de-DE')} <span className="text-blue-500 text-sm italic">Retouren / Mo</span>
+                    {returnCount.toLocaleString('de-DE')} <span className="text-blue-500 text-sm italic">Retouren / Monat</span>
                   </span>
                 </div>
               </div>
@@ -108,7 +108,7 @@ export default function ROICalculator() {
                   <div className="bg-blue-500/20 p-4 rounded-2xl shrink-0"><BarChart3 className="text-blue-500" size={28} /></div>
                   <div>
                     <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 mb-1">Vermeidbarer Aufwand</p>
-                    <p className="text-3xl md:text-5xl font-black tracking-tighter tabular-nums">~{hoursSaved}h <span className="text-xs md:text-lg text-slate-400 font-bold tracking-normal italic">/ Mo</span></p>
+                    <p className="text-3xl md:text-5xl font-black tracking-tighter tabular-nums">~{hoursSaved}h <span className="text-xs md:text-lg text-slate-400 font-bold tracking-normal italic">/ Monat</span></p>
                   </div>
                 </div>
               </div>
@@ -132,11 +132,11 @@ export default function ROICalculator() {
                   </div>
                   <p className="text-[10px] md:text-xs font-black uppercase tracking-tight leading-tight text-slate-300">
                     Startup-Plan lohnt sich ab <br />
-                    nur <span className="text-white border-b border-blue-500/50">{breakEvenReturns} Retouren/Mo</span>.
+                    nur <span className="text-white border-b border-blue-500/50">{breakEvenReturns} Retouren/Monat</span>.
                   </p>
                 </div>
                 <a href="/#pricing" className="hidden sm:block text-blue-400 text-[9px] font-black uppercase tracking-widest hover:text-white transition-colors">
-                  Details →
+                  Details
                 </a>
               </div>
             </div>
