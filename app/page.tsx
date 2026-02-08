@@ -16,12 +16,13 @@ export default function LandingPage() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; //
+  if (!mounted) return null;
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
+    /* overflow-x-hidden verhindert das seitliche Wischen ins "Schwarze" */
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-600 selection:text-white overflow-x-hidden">
       <Navbar />
-      <main>
+      <main className="w-full">
         <Hero />
         <ROICalculator />
         <Pricing />
