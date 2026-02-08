@@ -6,7 +6,10 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
-        <a href="/" className="scale-90 md:scale-100 transition-transform"><RetourioLogo /></a>
+        {/* Logo-Größe auf h-12 für Desktop und h-10 für Mobile erhöht */}
+        <a href="/" className="transition-transform hover:opacity-80">
+          <RetourioLogo className="h-10 md:h-12" />
+        </a>
         
         <div className="flex items-center gap-4 md:gap-8">
           <a
@@ -15,7 +18,6 @@ export default function Navbar() {
           >
             Changelog
           </a>
-          {/* FIX: Absolute Pfadangabe für Anker-Links */}
           <a
             href="/#pricing"
             className="hidden sm:block text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors"
