@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-// Hier definierst du, was oben im Browser-Tab steht
 export const metadata: Metadata = {
   // Der Titel nutzt deinen Slogan für maximalen Wiedererkennungswert
   title: "Retourio | Retouren sind Vergangenheit.",
   description: "Automatisiere deinen gesamten Rücksendeprozess in unter 5 Minuten. SaaS für E-Commerce Startups.",
   
-  // Verweist auf die Datei in deinem /public Ordner
   icons: {
-    icon: "/icon.svg", // Falls deine Datei anders heißt (z.B. icon.svg), hier anpassen
+    icon: "/icon.svg", 
     shortcut: "/icon.svg",
-    apple: "/icon.svg", // Für mobile Lesezeichen
+    // Hier verlinken wir die 180x180 PNG-Datei aus deinem /public Ordner
+    apple: "/apple-touch-icon.png", 
   },
 };
 
