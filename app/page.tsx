@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/landing/navbar';
 import Hero from '../components/landing/hero';
-import LogoStrip from '../components/landing/LogoStrip'; // Neu
 import ROICalculator from '../components/landing/ROICalculator';
 import Pricing from '../components/landing/pricing';
 import ProductShowcase from '../components/landing/ProductShowcase';
