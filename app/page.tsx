@@ -24,10 +24,6 @@ export default function LandingPage() {
       <Navbar />
       <main>
         <Hero />
-        
-        {/* Logos direkt nach dem Hero für maximales Vertrauen */}
-        <LogoStrip />
-        
         <ROICalculator />
         <Pricing />
         <ProductShowcase />
