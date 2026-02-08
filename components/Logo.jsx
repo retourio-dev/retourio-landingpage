@@ -4,16 +4,16 @@ import React from 'react';
 export function RetourioLogo({ className = 'h-10' }) {
   return (
     <div className={`flex items-center ${className}`}>
-      {/* Das neue SVG Design mit 170x40 Viewbox */}
       <svg 
+        width="170" 
+        height="40" 
         viewBox="0 0 170 40" 
-        xmlns="http://www.w3.org/2000/svg" 
+        xmlns="http://www.w3.org/2000/svg"
         className="h-full w-auto"
-        fill="none"
       >
         <g transform="translate(10, 0)">
-          {/* Das Icon-Element */}
-          <g transform="translate(0, 6)">
+          {/* Blaues Pfeil-Icon */}
+          <g transform="translate(0, 7)">
             <path 
               d="M3 9H16.5C18.9853 9 21 11.0147 21 13.5C21 15.9853 18.9853 18 16.5 18H12" 
               className="stroke-blue-600" 
@@ -30,28 +30,30 @@ export function RetourioLogo({ className = 'h-10' }) {
               strokeLinejoin="round" 
               fill="none"
             />
-            {/* Das unsichtbare Rechteck wurde weggelassen, da opacity=0 */}
           </g>
 
-          {/* Der Retourio Text-Teil */}
+          {/* RETOURIO Text */}
           <text 
-            x="30" 
-            y="28" 
-            className="fill-slate-950 font-black italic uppercase"
+            x="32" 
+            y="27" 
+            className="fill-slate-950"
             style={{ 
               fontFamily: 'Arial, sans-serif', 
               fontSize: '20px', 
+              fontWeight: 900, 
+              fontStyle: 'italic', 
+              textTransform: 'uppercase', 
               letterSpacing: '-1px' 
             }}
           >
             RETOURIO
           </text>
 
-          {/* Der markante blaue Punkt am Ende */}
+          {/* Der blaue Punkt am Ende */}
           <circle 
-            cx="142.5" 
-            cy="26.5" 
-            r="2.2" 
+            cx="145" 
+            cy="24.5" 
+            r="2.5" 
             className="fill-blue-600" 
           />
         </g>
