@@ -3,14 +3,21 @@ import React from 'react';
 
 export function RetourioLogo({ className = 'h-10' }) {
   return (
-    /* Wir nutzen inline-flex und verhindern das Schrumpfen des Logos im Header */
+    /* 1. inline-flex: Verhindert, dass das Logo die volle Breite einnimmt.
+      2. shrink-0: Verhindert, dass das Logo zusammengedrückt wird, wenn der Platz eng wird.
+    */
     <div className={`inline-flex items-center group cursor-pointer shrink-0 ${className}`}>
       <svg 
-        // Wir entfernen feste width/height und nutzen nur die viewBox für perfekte Skalierung
+        /* WICHTIG: Wir entfernen width="..." und height="...". 
+          Das SVG soll sich nur an der Höhe orientieren, die wir ihm über className (z.B. h-10) geben.
+        */
         viewBox="0 0 170 40" 
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        // preserveAspectRatio garantiert, dass das Logo nicht verzerrt wird
+        /* DAS IST DER FIX: preserveAspectRatio="xMidYMid meet"
+          Dies zwingt das SVG, sein ursprüngliches Seitenverhältnis beizubehalten. 
+          Es wird niemals verzerrt, sondern skaliert sich proportional.
+        */
         preserveAspectRatio="xMidYMid meet"
         className="h-full w-auto overflow-visible"
       >
