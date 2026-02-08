@@ -42,7 +42,7 @@ export default function ROICalculator() {
               <div className="flex flex-col">
                 <span className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-1 text-center md:text-left">Aktuelles Volumen</span>
                 <span className="text-xl md:text-2xl font-black tabular-nums text-white text-center md:text-left">
-                  {returnCount.toLocaleString('de-DE')} <span className="text-blue-500 text-sm">Retouren / Mo</span>
+                  {returnCount.toLocaleString('de-DE')} <span className="text-blue-500 text-sm">Retouren / Monat</span>
                 </span>
               </div>
             </div>
