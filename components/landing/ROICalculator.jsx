@@ -1,19 +1,41 @@
 'use client';
 import React, { useState } from 'react';
-import { BarChart3, ShieldCheck, TrendingUp } from 'lucide-react';
+import { BarChart3, ShieldCheck, TrendingUp, Settings2, X } from 'lucide-react';
 
 export default function ROICalculator() {
   const [returnCount, setReturnCount] = useState(60);
-  const hoursSaved = (returnCount * 0.25).toFixed(1);
-  const moneySaved = (returnCount * 12.5).toLocaleString('de-DE'); 
+  
+  // Neue States für die individuelle Berechnung
+  const [showSettings, setShowSettings] = useState(false);
+  const [hourlyRate, setHourlyRate] = useState(50); // Standard 50€/h
+  const [minutesPerReturn, setMinutesPerReturn] = useState(15); // Standard 15 Min (0.25h)
+
+  // Dynamische Berechnung basierend auf den Einstellungen
+  const timeInHours = minutesPerReturn / 60;
+  const hoursSaved = (returnCount * timeInHours).toFixed(1);
+  
+  // Kostenersparnis = Stunden gespart * Stundensatz * 12 Monate
+  const moneySaved = (returnCount * timeInHours * hourlyRate * 12).toLocaleString('de-DE'); 
 
   return (
     <section className="py-12 md:py-24 px-4 md:px-6">
       <div className="max-w-6xl mx-auto bg-slate-950 rounded-[2.5rem] md:rounded-[4rem] p-6 md:p-20 text-white shadow-2xl relative overflow-hidden border border-white/5">
         
+        {/* Button: Berechnung anpassen oben rechts */}
+        <button 
+          onClick={() => setShowSettings(!showSettings)}
+          className="absolute top-6 right-6 md:top-10 md:right-10 z-20 flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-all border border-white/10 group"
+        >
+          {showSettings ? <X size={14} /> : <Settings2 size={14} className="group-hover:rotate-90 transition-transform" />}
+          <span className="text-[10px] font-black uppercase tracking-widest">
+            {showSettings ? 'Schließen' : 'Berechnung anpassen'}
+          </span>
+        </button>
+
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-600/20 blur-[120px] pointer-events-none" />
         
         <div className="grid lg:grid-cols-2 gap-10 md:gap-20 items-center relative z-10">
+          
           <div>
             <div className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full mb-6">
               <TrendingUp size={14} />
@@ -25,9 +47,39 @@ export default function ROICalculator() {
               <span className="text-blue-500">Spare beides.</span>
             </h2>
             
-            <p className="text-slate-400 font-medium text-base md:text-lg mb-10 leading-relaxed max-w-md">
-              Stoppe die manuelle Bearbeitung. Automatisiere deinen Loop.
-            </p>
+            {/* Einstellungs-Panel (wird eingeblendet) */}
+            {showSettings ? (
+              <div className="bg-white/5 border border-white/10 p-6 rounded-3xl mb-8 space-y-6 animate-in fade-in slide-in-from-top-4 duration-300">
+                <div>
+                  <label className="text-[10px] font-black uppercase text-slate-500 block mb-3 tracking-widest">Stundensatz Mitarbeiter (€)</label>
+                  <div className="flex items-center gap-4">
+                    <input 
+                      type="range" min="15" max="150" step="5"
+                      value={hourlyRate}
+                      onChange={(e) => setHourlyRate(parseInt(e.target.value))}
+                      className="flex-1 h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
+                    />
+                    <span className="text-xl font-black w-12 text-right">{hourlyRate}€</span>
+                  </div>
+                </div>
+                <div>
+                  <label className="text-[10px] font-black uppercase text-slate-500 block mb-3 tracking-widest">Zeit pro Retoure (Minuten)</label>
+                  <div className="flex items-center gap-4">
+                    <input 
+                      type="range" min="5" max="60" step="1"
+                      value={minutesPerReturn}
+                      onChange={(e) => setMinutesPerReturn(parseInt(e.target.value))}
+                      className="flex-1 h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
+                    />
+                    <span className="text-xl font-black w-12 text-right">{minutesPerReturn}m</span>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <p className="text-slate-400 font-medium text-base md:text-lg mb-10 leading-relaxed max-w-md">
+                Stoppe die manuelle Bearbeitung. Automatisiere deinen Loop und skaliere ohne Kopfschmerzen.
+              </p>
+            )}
 
             <div className="space-y-8">
               <input
@@ -42,7 +94,7 @@ export default function ROICalculator() {
               <div className="flex flex-col">
                 <span className="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-1 text-center md:text-left">Aktuelles Volumen</span>
                 <span className="text-xl md:text-2xl font-black tabular-nums text-white text-center md:text-left">
-                  {returnCount.toLocaleString('de-DE')} <span className="text-blue-500 text-sm">Retouren / Monat</span>
+                  {returnCount.toLocaleString('de-DE')} <span className="text-blue-500 text-sm">Retouren / Mo</span>
                 </span>
               </div>
             </div>
