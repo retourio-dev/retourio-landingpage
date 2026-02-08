@@ -1,46 +1,50 @@
 'use client';
 import React from 'react';
 
-export function RetourioLogo({ className = 'h-10' }) {
+export function RetourioLogo({ className = '' }) {
   return (
-    <div className={`inline-flex items-center group shrink-0 ${className}`}>
+    /* Der Container hält alles in einer Zeile (flex) und verhindert Umbrüche (whitespace-nowrap) */
+    <div className={`inline-flex items-center gap-1.5 group shrink-0 select-none ${className}`}>
+      
+      {/* 1. Das Icon: Ein kleines, festes SVG nur für den Pfeil */}
       <svg 
-        // Wir nutzen eine kompaktere ViewBox (160x40), damit kein unnötiger Leerraum entsteht
-        viewBox="0 0 160 40" 
+        width="24" 
+        height="24" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        className="text-blue-600 shrink-0"
         xmlns="http://www.w3.org/2000/svg"
-        className="h-full w-auto"
-        preserveAspectRatio="xMinYMid meet"
       >
-        {/* Der blaue Pfeil - jetzt fest positioniert */}
-        <g className="stroke-blue-600" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none">
-          <path d="M5 16H18.5C20.9853 16 23 18.0147 23 20.5C23 22.9853 20.9853 25 18.5 25H14" />
-          <path d="M9 12L5 16L9 20" />
-        </g>
-
-        {/* Der Text RETOURIO - Näher am Icon (x="30") und vertikal perfekt zentriert (y="26") */}
-        <text 
-          x="30" 
-          y="26" 
-          className="fill-slate-950 font-black italic uppercase"
-          style={{ 
-            fontFamily: 'Arial, sans-serif', 
-            fontSize: '19px', 
-            letterSpacing: '-1px',
-            fontWeight: 900
-          }}
-        >
-          RETOURIO
-        </text>
-
-        {/* Der blaue Punkt - direkt hinter dem O platziert */}
-        <circle 
-          cx="140" 
-          cy="24" 
-          r="2.5" 
-          className="fill-blue-600 transition-transform duration-300 group-hover:scale-150"
-          style={{ transformOrigin: '140px 24px' }}
+        <path 
+          d="M3 10H14.5C16.9853 10 19 12.0147 19 14.5C19 16.9853 16.9853 19 14.5 19H11" 
+          stroke="currentColor" 
+          strokeWidth="2.5" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+        />
+        <path 
+          d="M7 6L3 10L7 14" 
+          stroke="currentColor" 
+          strokeWidth="2.5" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
         />
       </svg>
+
+      {/* 2. Der Text: Echtes HTML für maximale Stabilität auf Mobile */}
+      <span 
+        className="text-slate-950 font-[900] italic uppercase tracking-tighter leading-none"
+        style={{ 
+          fontFamily: 'Arial, sans-serif', 
+          fontSize: '1.25rem' // Entspricht ca. 20px
+        }}
+      >
+        RETOURIO
+      </span>
+
+      {/* 3. Der Punkt: Ein CSS-Element, das IMMER direkt hinter dem Text bleibt */}
+      <span className="w-[5px] h-[5px] bg-blue-600 rounded-full mt-2 group-hover:scale-150 transition-transform duration-300" />
+      
     </div>
   );
 }
