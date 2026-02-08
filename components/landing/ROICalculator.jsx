@@ -132,7 +132,7 @@ export default function ROICalculator() {
                   </div>
                   <p className="text-[10px] md:text-xs font-black uppercase tracking-tight leading-tight text-slate-300">
                     Startup-Plan lohnt sich ab <br />
-                    nur <span className="text-white border-b border-blue-500/50">{breakEvenReturns} Retouren/Monat</span>.
+                    nur <span className="text-blue border-b border-blue-500/50">{breakEvenReturns} Retouren/Monat</span>.
                   </p>
                 </div>
                 <a href="/#pricing" className="hidden sm:block text-blue-400 text-[9px] font-black uppercase tracking-widest hover:text-white transition-colors">
