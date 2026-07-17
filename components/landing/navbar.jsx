@@ -25,6 +25,11 @@ export default function Navbar() {
             Preise
           </a>
           
+          <a href="/tcg">
+            <button className="bg-blue-600 text-white px-4 md:px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all">
+              TCG-Cards
+            </button>
+          </a>
           <a href="https://portal.retourio.app" target="_blank" rel="noopener noreferrer">
             <button className="bg-slate-900 text-white px-4 md:px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all">
               Portal
